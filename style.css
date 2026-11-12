@@ -306,3 +306,7 @@ nav button:active .i{transform:scale(.88)}
 #fab{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 body.sm #bar{bottom:calc(10px + env(safe-area-inset-bottom,0px))}
 #toast{bottom:130px}
+
+/* ===== performance: no live blur on the bottom bar, cheaper icon shadows ===== */
+nav{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--bg);box-shadow:none}
+.ico{box-shadow:0 3px 8px #0003}

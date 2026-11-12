@@ -383,7 +383,7 @@ function detail(id){
  <div class="row"><button class="btn" id="df">${s.fav?"প্রিয় সরান":"প্রিয় রাখুন"}</button><button class="btn" id="de">এডিট করুন</button></div>
  <button class="btn d w" id="dd">🗑 রিমুভ করুন</button>`);
  $("#do").onclick=()=>{closeSheet();openSite(s);render()};
- if($("#dwh"))$("#dwh").onclick=()=>{const u=norm(s.url);if(u==="about:blank")return toast("URL ঠিক নেই");const c=s.ic,o={url:u,title:s.name,pkg:s.br||HO_native.getDefault()};if(c&&c.t==="img"&&IMGR.test(c.v))o.iconData=c.v;else if(host(u))o.iconUrl="https://www.google.com/s2/favicons?domain="+encodeURIComponent(host(u))+"&sz=128";HO_native.webAdd(o).then(()=>toast("হোম স্ক্রিনে যোগ করার অনুমতি দিন")).catch(()=>toast("এই ফোনে হোম স্ক্রিনে যোগ করা যাচ্ছে না"))};
+ if($("#dwh"))$("#dwh").onclick=()=>{const u=norm(s.url);if(u==="about:blank")return toast("URL ঠিক নেই");const c=s.ic,o={url:u,title:s.name,pkg:s.br||HO_native.getDefault()};if(c&&c.t==="img"&&IMGR.test(c.v))o.iconData=c.v;else if(host(u))o.iconUrl="https://www.google.com/s2/favicons?domain="+encodeURIComponent(host(u))+"&sz=128";HO_native.webAdd(o).then(()=>{let n=0;try{n=+localStorage.getItem("ho_hstip")||0}catch(e){}if(n<3){try{localStorage.setItem("ho_hstip",n+1)}catch(e){}toast("আইকন না এলে: সেটিংস → অ্যাপস → LinkOrbit → অন্যান্য অনুমতি → হোম স্ক্রিন শর্টকাট চালু করুন",["ঠিক আছে",()=>{}])}else toast("হোম স্ক্রিনে যোগ করার অনুমতি দিন")}).catch(()=>toast("এই ফোনে হোম স্ক্রিনে যোগ করা যাচ্ছে না"))};
  $("#df").onclick=()=>{s.fav=s.fav?0:1;save();closeSheet();render()};
  $("#de").onclick=()=>form(s);
  $("#dd").onclick=()=>ask("\""+s.name+"\" রিমুভ করবেন?",()=>{const ix=sites.indexOf(s);sites=sites.filter(x=>x!==s);BIN.unshift({t:Date.now(),s});BIN=BIN.slice(0,200);saveBin();save();render();toast("রিমুভ হয়েছে",["ফিরিয়ে আনুন",()=>{BIN=BIN.filter(x=>x.s!==s);saveBin();sites.splice(Math.min(ix,sites.length),0,s);save();render()}])});
@@ -457,7 +457,7 @@ M.addEventListener("click",e=>{
  const mb=e.target.closest("[data-m]");if(mb)return detail(+mb.dataset.m);
  const t=e.target.closest("[data-o]");if(t){const s=sites.find(x=>x.id==t.dataset.o);if(s){openSite(s);render()}}});
 M.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.dataset.o)e.target.click()});
-$("#q").addEventListener("input",e=>{q=e.target.value.trim();render()});
+$("#q").addEventListener("input",e=>{const v=e.target.value.trim();clearTimeout(window.__qT);window.__qT=setTimeout(()=>{q=v;render()},120)});
 let chipSwallow=0;
 $("#chips").addEventListener("click",e=>{if(Date.now()<chipSwallow)return;if(e.target.closest("[data-mg]"))return catMgr();const c=e.target.closest("[data-c]");if(c){cat=c.dataset.c;render()}});
 /* long-press a category chip, then drag left/right to reorder (saved in the same order the category manager uses) */
