@@ -310,3 +310,7 @@ body.sm #bar{bottom:calc(10px + env(safe-area-inset-bottom,0px))}
 /* ===== performance: no live blur on the bottom bar, cheaper icon shadows ===== */
 nav{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--bg);box-shadow:none}
 .ico{box-shadow:0 3px 8px #0003}
+
+/* ===== scrolling: stop pull-to-refresh / scroll chaining from stealing swipes ===== */
+html,body{overscroll-behavior-y:none}
+main{overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
