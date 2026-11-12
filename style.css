@@ -99,7 +99,7 @@ body.ro #fab{display:none}
 
 /* v8 polish */
 @keyframes up{from{opacity:0;transform:translateY(10px)}}
-.app,.li,.rc{animation:up .35s both}
+.app,.li,.rc{animation:up .35s backwards}
 .app:nth-child(2){animation-delay:.04s}.app:nth-child(3){animation-delay:.08s}.app:nth-child(4){animation-delay:.12s}.app:nth-child(5){animation-delay:.16s}
 .app:active{transform:scale(.93)}
 .rc h2{display:flex;align-items:center;gap:6px}
@@ -124,9 +124,9 @@ details.card[open] summary::after{transform:rotate(225deg);margin-top:4px}
 .ib .i{width:20px;height:20px;stroke-width:1.9}
 .card .btn .i,.rw .btn .i{width:18px;height:18px;stroke-width:2;margin:0}
 .mo .i{width:20px;height:20px;vertical-align:middle}
-details.card .cb{padding:0 18px 16px;animation:up .25s both}
+details.card .cb{padding:0 18px 16px;animation:up .25s backwards}
 .cpk{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 10px}
-.cp{border:1.5px solid var(--ln);background:var(--in);color:var(--tx);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;transition:all .18s;animation:pop .25s both}
+.cp{border:1.5px solid var(--ln);background:var(--in);color:var(--tx);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;transition:all .18s;animation:pop .25s backwards}
 .cp.on{background:var(--ac);border-color:var(--ac);color:#fff;transform:scale(1.04);box-shadow:0 6px 16px hsl(var(--h) 80% 50%/.35)}
 @keyframes pop{from{opacity:0;transform:scale(.8)}}
 .cadd{display:flex;gap:8px;align-items:center;margin-bottom:6px}.cadd input{flex:1;min-width:0}.cadd .btn{margin:0}
