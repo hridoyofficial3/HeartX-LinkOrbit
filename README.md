@@ -3,7 +3,7 @@
 **পছন্দের সব ওয়েবসাইট এক জায়গায়।**
 **All your favorite websites in one place.**
 
-🔗 https://hridoyofficial3.github.io/Heart-Orbit/
+🔗 https://hridoyofficial3.github.io/LinkOrbit/
 
 ---
 
